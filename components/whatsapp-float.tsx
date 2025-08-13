@@ -23,18 +23,11 @@ export function WhatsAppFloat() {
   const [isVisible, setIsVisible] = useState(false)
   const [showOptions, setShowOptions] = useState(false)
   const [mounted, setMounted] = useState(false)
-  const [showLogoTooltip, setShowLogoTooltip] = useState(false)
 
   useEffect(() => {
     setMounted(true)
     const timer = setTimeout(() => {
       setIsVisible(true)
-      // Show logo tooltip after button appears
-      const logoTimer = setTimeout(() => {
-        setShowLogoTooltip(true)
-      }, 500) // Small delay after button appears
-      
-      return () => clearTimeout(logoTimer)
     }, 3000) // Show after 3 seconds
 
     return () => clearTimeout(timer)
@@ -111,24 +104,6 @@ export function WhatsAppFloat() {
         <span className="sr-only">Open WhatsApp chat</span>
       </Button>
 
-      {/* Chat with us tooltip - shows permanently once loaded */}
-      {showLogoTooltip && !showOptions && (
-        <div className="absolute -top-12 sm:-top-14 -left-6 sm:-left-8 right-0 flex items-center justify-center animate-fade-in-up">
-          <div className="bg-gray-900 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-medium shadow-lg flex items-center space-x-2 border border-gray-700 whitespace-nowrap">
-            <WhatsAppIcon className="h-3 w-3 sm:h-4 sm:w-4 text-white flex-shrink-0" />
-            <span className="font-medium text-nowrap">Chat with us!</span>
-            <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
-          </div>
-        </div>
-      )}
-
-      {/* Chat tooltip - shows when logo tooltip is hidden and options are closed */}
-      {!showOptions && !showLogoTooltip && (
-        <div className="absolute -top-10 sm:-top-12 right-0 bg-gray-900 text-white px-2 py-1 sm:px-3 sm:py-1.5 rounded-md sm:rounded-lg text-xs sm:text-sm whitespace-nowrap animate-fade-in-up font-medium">
-          Chat with us!
-          <div className="absolute top-full right-3 sm:right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
-        </div>
-      )}
     </div>
   )
 }
