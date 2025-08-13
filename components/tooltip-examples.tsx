@@ -44,12 +44,24 @@ export function TooltipExamples() {
                 </Button>
               </ChatTooltip>
               
+              <ChatTooltip text="Contact our support team now!" position="bottom">
+                <Button className="bg-blue-500 hover:bg-blue-600 text-white rounded-full w-12 h-12 p-0">
+                  <Phone className="h-5 w-5" />
+                </Button>
+              </ChatTooltip>
+              
               <ChatTooltip text="Need help?" position="right" showIcon={false}>
                 <Button variant="outline" size="sm">
                   <Info className="h-4 w-4 mr-2" />
                   Info
                 </Button>
               </ChatTooltip>
+            </div>
+            <div className="mt-4 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
+              <p className="text-sm text-yellow-800">
+                📱 <strong>Mobile Responsive:</strong> These tooltips automatically adjust size and spacing on mobile devices. 
+                The "Chat with us!" text stays on one line and icons scale appropriately.
+              </p>
             </div>
           </div>
 
@@ -118,7 +130,7 @@ export function TooltipExamples() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Realistic Usage Examples</h3>
             <div className="bg-gray-50 p-6 rounded-lg">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between flex-wrap gap-4">
                 <h4 className="text-base font-medium">NAZ Engineering Services</h4>
                 <div className="flex space-x-2">
                   <TextTooltip text="Learn more about our services">
@@ -130,10 +142,78 @@ export function TooltipExamples() {
                   <ChatTooltip text="Get instant support!" position="left">
                     <Button size="sm" className="bg-green-500 hover:bg-green-600 text-white">
                       <MessageCircle className="h-4 w-4 mr-2" />
-                      Chat
+                      <span className="hidden sm:inline">Chat</span>
                     </Button>
                   </ChatTooltip>
                 </div>
+              </div>
+            </div>
+            
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <ChatTooltip text="Quick contact via WhatsApp" position="top">
+                <Button className="w-full bg-green-500 hover:bg-green-600 text-white">
+                  💬 WhatsApp
+                </Button>
+              </ChatTooltip>
+              
+              <ChatTooltip text="Call us directly" position="top">
+                <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white">
+                  📞 Call Now
+                </Button>
+              </ChatTooltip>
+              
+              <ChatTooltip text="Send us an email" position="top">
+                <Button className="w-full bg-purple-500 hover:bg-purple-600 text-white">
+                  📧 Email
+                </Button>
+              </ChatTooltip>
+              
+              <ChatTooltip text="Request a free quote" position="top">
+                <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white">
+                  💰 Quote
+                </Button>
+              </ChatTooltip>
+            </div>
+          </div>
+          
+          {/* WhatsApp Collision Detection Test */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">WhatsApp Widget Collision Detection</h3>
+            <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mb-4">
+              <p className="text-sm text-blue-800 mb-3">
+                🔍 <strong>Smart Positioning:</strong> These tooltips automatically detect and avoid the WhatsApp chat widget in the bottom-right corner.
+                Try hovering over the buttons below - tooltips will reposition themselves to avoid overlapping with the WhatsApp widget.
+              </p>
+              <div className="text-xs text-blue-600">
+                <strong>Technical Details:</strong> z-index: 40 (tooltips) vs z-index: 50 (WhatsApp widget)
+              </div>
+            </div>
+            
+            {/* Buttons positioned to potentially conflict with WhatsApp widget */}
+            <div className="relative h-32">
+              {/* Bottom-right area buttons */}
+              <div className="absolute bottom-4 right-20">
+                <ChatTooltip text="This tooltip will avoid WhatsApp!" position="bottom">
+                  <Button size="sm" variant="outline">
+                    Near WhatsApp (Bottom)
+                  </Button>
+                </ChatTooltip>
+              </div>
+              
+              <div className="absolute bottom-12 right-4">
+                <ChatTooltip text="Auto-repositioned tooltip" position="right">
+                  <Button size="sm" variant="outline">
+                    Near WhatsApp (Right)
+                  </Button>
+                </ChatTooltip>
+              </div>
+              
+              <div className="absolute bottom-20 right-12">
+                <TextTooltip text="Smart collision detection in action!" position="bottom">
+                  <Button size="sm" variant="secondary">
+                    Test Collision
+                  </Button>
+                </TextTooltip>
               </div>
             </div>
           </div>

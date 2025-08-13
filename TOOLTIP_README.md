@@ -26,7 +26,11 @@ I've created a complete tooltip system for your NAZ Engineering website that mat
 ✅ **Custom Styling**: Easy to customize colors, animations, etc.
 ✅ **WhatsApp Style**: Matches your existing chat widget perfectly
 ✅ **Hardware Accelerated**: Uses your existing CSS animations
-✅ **Mobile Friendly**: Responsive and touch-optimized
+✅ **Fully Responsive**: Auto-adjusts size, spacing, and text on mobile
+✅ **Single Line Text**: "Chat with us!" stays on one line on all devices
+✅ **Mobile Optimized**: Touch-friendly with appropriate sizing
+✅ **Smart Collision Detection**: Automatically avoids WhatsApp widget
+✅ **Layered Z-Index**: Tooltips (z-40) stay below WhatsApp widget (z-50)
 ✅ **TypeScript**: Fully typed for better development experience
 
 ## How to Use
@@ -85,9 +89,13 @@ import { SimpleTooltip } from "@/components/ui/simple-tooltip"
 
 ## Styling
 
-The tooltips use your existing CSS classes:
+The tooltips use your existing CSS classes and are fully responsive:
 - `animate-fade-in-up` for smooth animations
 - Dark theme with `bg-gray-900`, `text-white`
+- Responsive padding: `px-2 py-1.5 sm:px-3 sm:py-2`
+- Responsive text: `text-xs sm:text-sm`
+- Responsive spacing: `mb-2 sm:mb-3`
+- `whitespace-nowrap` and `text-nowrap` to keep text on single line
 - Your existing border and shadow utilities
 - Hardware-accelerated animations from your global CSS
 
@@ -108,8 +116,62 @@ Visit `http://localhost:3000/tooltip-demo` to see all tooltip variations in acti
 - Click vs hover trigger examples
 - Custom styling examples
 
+## Responsive Behavior
+
+### Mobile Optimizations:
+- **Smaller padding**: `px-2 py-1.5` on mobile, `px-3 py-2` on desktop
+- **Smaller text**: `text-xs` on mobile, `text-sm` on desktop
+- **Adjusted spacing**: Reduced margins on mobile devices
+- **Icon scaling**: Icons are `h-3 w-3` on mobile, `h-4 w-4` on desktop
+- **Single-line text**: All tooltip text stays on one line using `whitespace-nowrap`
+- **Touch-friendly**: Proper touch targets and mobile-optimized interactions
+
+### Responsive Classes Used:
+```css
+/* Mobile-first approach */
+text-xs sm:text-sm          /* Small text on mobile, larger on desktop */
+px-2 py-1.5 sm:px-3 sm:py-2 /* Less padding on mobile */
+mb-2 sm:mb-3               /* Less margin on mobile */
+h-3 w-3 sm:h-4 sm:w-4      /* Smaller icons on mobile */
+whitespace-nowrap          /* Keep text on single line */
+```
+
+## WhatsApp Widget Collision Detection
+
+### Smart Positioning System:
+The tooltip system automatically detects and avoids your WhatsApp floating widget:
+
+- **Real-time Detection**: Calculates WhatsApp widget position on each tooltip display
+- **Auto Repositioning**: Moves tooltips to alternative positions when collision detected
+- **Z-Index Management**: Tooltips use `z-40`, WhatsApp widget uses `z-50`
+- **Mobile Aware**: Accounts for different widget margins on mobile vs desktop
+
+### How It Works:
+```typescript
+// Automatically calculates WhatsApp widget area
+const whatsappArea = {
+  // Mobile: 16px margin, Desktop: 32px margin
+  // Accounts for widget size (56px) and tooltip space
+}
+
+// Repositions tooltip if collision detected
+if (position === "bottom" || position === "right") {
+  return "top" // Move away from WhatsApp area
+}
+```
+
+### Collision Rules:
+1. **Bottom/Right tooltips** → Move to **Top** position
+2. **Top tooltips** (still overlapping) → Move to **Left** position
+3. **No collision** → Keep original position
+
 ## Your Existing WhatsApp Widget
 
-Your existing WhatsApp floating widget (`components/whatsapp-float.tsx`) already uses similar tooltip styling. The new tooltip components follow the same design patterns, so they'll look consistent across your site.
+Your existing WhatsApp floating widget (`components/whatsapp-float.tsx`) has been updated to match the same responsive behavior. The new tooltip components:
 
-You can now add tooltips anywhere in your website with the same professional look as your chat widget!
+✅ Follow the same design patterns for consistency
+✅ Automatically avoid the WhatsApp widget area
+✅ Use proper z-index layering (tooltips: z-40, WhatsApp: z-50)
+✅ Work seamlessly with your existing chat system
+
+You can now add tooltips anywhere in your website without worrying about collisions with the WhatsApp widget!
