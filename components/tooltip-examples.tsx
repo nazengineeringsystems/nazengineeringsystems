@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { SimpleTooltip, ChatTooltip, TextTooltip } from "@/components/ui/simple-tooltip"
+import { PermanentTooltip, PermanentChatTooltip, FloatingChatWidget } from "@/components/ui/permanent-tooltip"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { MessageCircle, Info, Phone, Mail } from "lucide-react"
 
@@ -214,6 +215,92 @@ export function TooltipExamples() {
                     Test Collision
                   </Button>
                 </TextTooltip>
+              </div>
+            </div>
+          </div>
+          
+          {/* Permanent Tooltips */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Permanent Tooltips (Always Visible)</h3>
+            <div className="bg-green-50 p-4 rounded-lg border border-green-200 mb-6">
+              <p className="text-sm text-green-800 mb-2">
+                ✨ <strong>Permanent Tooltips:</strong> These tooltips are always visible, just like the one in your image!
+              </p>
+              <p className="text-xs text-green-600">
+                Perfect for chat widgets, call-to-action buttons, or any element that needs constant visibility.
+              </p>
+            </div>
+            
+            <div className="space-y-8">
+              {/* Basic Permanent Tooltips */}
+              <div>
+                <h4 className="text-base font-medium mb-4">Basic Permanent Tooltips</h4>
+                <div className="flex space-x-8 flex-wrap gap-8 items-end">
+                  <PermanentTooltip text="Always visible!" position="top">
+                    <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
+                      ?
+                    </div>
+                  </PermanentTooltip>
+                  
+                  <PermanentTooltip text="I'm on the bottom!" position="bottom">
+                    <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">
+                      !
+                    </div>
+                  </PermanentTooltip>
+                  
+                  <PermanentTooltip text="Left side tooltip" position="left">
+                    <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold">
+                      ←
+                    </div>
+                  </PermanentTooltip>
+                  
+                  <PermanentTooltip text="Right side tooltip" position="right">
+                    <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white font-bold">
+                      →
+                    </div>
+                  </PermanentTooltip>
+                </div>
+              </div>
+              
+              {/* Chat Style Permanent Tooltips */}
+              <div>
+                <h4 className="text-base font-medium mb-4">Chat Style Permanent Tooltips (Like Your Image)</h4>
+                <div className="flex space-x-8 flex-wrap gap-8 items-end">
+                  <PermanentChatTooltip text="Chat with us!" position="top">
+                    <div className="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center">
+                      <MessageCircle className="h-7 w-7 text-white" />
+                    </div>
+                  </PermanentChatTooltip>
+                  
+                  <PermanentChatTooltip text="Need help?" position="top" showIcon={false}>
+                    <div className="w-14 h-14 bg-blue-500 rounded-full flex items-center justify-center">
+                      <Phone className="h-7 w-7 text-white" />
+                    </div>
+                  </PermanentChatTooltip>
+                  
+                  <PermanentChatTooltip text="Contact support" position="bottom">
+                    <div className="w-14 h-14 bg-purple-500 rounded-full flex items-center justify-center">
+                      <Mail className="h-7 w-7 text-white" />
+                    </div>
+                  </PermanentChatTooltip>
+                </div>
+              </div>
+              
+              {/* Floating Widget Example */}
+              <div>
+                <h4 className="text-base font-medium mb-4">Complete Floating Chat Widget</h4>
+                <div className="relative h-32 bg-gray-100 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center">
+                  <p className="text-gray-500 text-sm">Website content area</p>
+                  <FloatingChatWidget 
+                    text="Chat with us!"
+                    position="bottom-right"
+                    onClick={() => alert('Chat clicked!')}
+                    className="!absolute !bottom-4 !right-4" 
+                  />
+                </div>
+                <p className="text-xs text-gray-600 mt-2">
+                  This creates a complete floating chat widget with permanent tooltip - exactly like your image!
+                </p>
               </div>
             </div>
           </div>

@@ -9,8 +9,8 @@ export default function TooltipDemoPage() {
             Simple Tooltip Component Demo
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            This page demonstrates different tooltip variations that match your WhatsApp chat widget style.
-            You now have simple, reusable tooltip components that you can use throughout your website.
+            This page demonstrates different tooltip variations including <strong>permanent tooltips</strong> that are always visible (like in your image!)
+            You now have both hover/click tooltips and always-visible permanent tooltips for your website.
           </p>
         </div>
         
