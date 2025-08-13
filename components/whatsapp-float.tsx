@@ -113,30 +113,11 @@ export function WhatsAppFloat() {
 
       {/* Chat with us tooltip - shows permanently once loaded */}
       {showLogoTooltip && !showOptions && (
-        <div className="absolute -top-18 -left-6 right-0 flex items-center justify-center animate-fade-in-up animate-whatsapp-logo">
-          <div className="relative bg-gradient-to-br from-indigo-500 via-blue-600 to-blue-700 text-white px-6 py-3 rounded-2xl text-sm font-semibold shadow-2xl flex items-center space-x-3 border border-white/20 backdrop-blur-md transform hover:scale-105 transition-all duration-300 cursor-pointer">
-            {/* Glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-400/20 to-blue-600/20 rounded-2xl blur-xl"></div>
-            
-            {/* Content */}
-            <div className="relative flex items-center space-x-3">
-              <div className="p-1 bg-white/10 rounded-full">
-                <WhatsAppIcon className="h-4 w-4 text-white drop-shadow-sm" />
-              </div>
-              <span className="font-bold text-white drop-shadow-sm tracking-wide">Chat with us</span>
-              
-              {/* Pulse dot indicator */}
-              <div className="flex items-center space-x-1">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <div className="text-xs font-medium text-green-200">Online</div>
-              </div>
-            </div>
-            
-            {/* Enhanced arrow */}
-            <div className="absolute top-full left-1/2 transform -translate-x-1/2">
-              <div className="w-0 h-0 border-l-6 border-r-6 border-t-6 border-transparent border-t-blue-600"></div>
-              <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-5 border-r-5 border-t-5 border-transparent border-t-indigo-500"></div>
-            </div>
+        <div className="absolute -top-14 -left-8 right-0 flex items-center justify-center animate-fade-in-up">
+          <div className="bg-gray-900 text-white px-4 py-2 rounded-xl text-sm font-medium shadow-lg flex items-center space-x-2 border border-gray-700">
+            <WhatsAppIcon className="h-4 w-4 text-white" />
+            <span className="font-medium">Chat with us!</span>
+            <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
           </div>
         </div>
       )}
