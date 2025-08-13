@@ -280,21 +280,22 @@ export default function ContactPage() {
               For urgent technical issues or emergency support, our team is available 24/7. We guarantee response within
               2 hours for emergency calls.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center max-w-4xl mx-auto">
-              <a href="tel:+911145006296">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center max-w-5xl mx-auto px-4 sm:px-0">
+              <a href="tel:+911145006296" className="w-full max-w-sm sm:max-w-none sm:w-auto">
                 <Button
                   size="lg"
-                  className="bg-red-600 hover:bg-red-700 text-white px-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                  className="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white px-3 sm:px-4 md:px-6 py-3 text-xs sm:text-sm md:text-base hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
                 >
                   <Phone className="mr-2 h-4 w-4" />
-                  Emergency: +91 11450 06296
+                  <span className="hidden sm:inline">Emergency: +91 11450 06296</span>
+                  <span className="sm:hidden">Emergency Call</span>
                 </Button>
               </a>
-              <a href="mailto:nazengineeringsystems@gmail.com?subject=EMERGENCY%20SUPPORT%20REQUIRED">
+              <a href="mailto:nazengineeringsystems@gmail.com?subject=EMERGENCY%20SUPPORT%20REQUIRED" className="w-full max-w-sm sm:max-w-none sm:w-auto">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-[#0B1F3A] px-6 bg-transparent hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                  className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-[#0B1F3A] px-3 sm:px-4 md:px-6 py-3 text-xs sm:text-sm md:text-base bg-transparent hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
                 >
                   <Mail className="mr-2 h-4 w-4" />
                   Emergency Email
@@ -304,13 +305,15 @@ export default function ContactPage() {
                 href="https://wa.me/919310756714?text=EMERGENCY:%20I%20need%20urgent%20technical%20support%20from%20NAZ%20Engineering%20Systems."
                 target="_blank"
                 rel="noopener noreferrer"
+                className="w-full max-w-sm sm:max-w-none sm:w-auto"
               >
                 <Button
                   size="lg"
-                  className="bg-green-600 hover:bg-green-700 text-white px-6 flex items-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                  className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white px-3 sm:px-4 md:px-6 py-3 text-xs sm:text-sm md:text-base flex items-center justify-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                 >
                   <MessageCircle className="mr-2 h-4 w-4" />
-                  Emergency WhatsApp
+                  <span className="hidden sm:inline">Emergency WhatsApp</span>
+                  <span className="sm:hidden">Emergency WhatsApp</span>
                 </Button>
               </a>
             </div>

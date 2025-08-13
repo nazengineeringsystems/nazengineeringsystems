@@ -141,7 +141,7 @@ export function HeroGetQuoteButton() {
     <GetQuoteButton 
       variant="outline"
       size="lg"
-      className="border-white text-white hover:bg-white hover:text-[#0B1F3A] px-8 py-3 text-lg bg-transparent font-semibold shadow-lg btn-cursor-effect btn-outline-effect btn-magnetic"
+      className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-[#0B1F3A] px-4 sm:px-6 md:px-8 py-3 text-sm sm:text-base md:text-lg bg-transparent font-semibold shadow-lg btn-cursor-effect btn-outline-effect btn-magnetic"
     >
       Get Free Quote
     </GetQuoteButton>
@@ -153,7 +153,7 @@ export function NavGetQuoteButton() {
   return (
     <GetQuoteButton 
       size="default"
-      className="px-6 w-full sm:w-auto"
+      className="px-4 sm:px-6 w-full max-w-xs sm:max-w-none sm:w-auto text-sm sm:text-base"
     >
       Get Quote
     </GetQuoteButton>

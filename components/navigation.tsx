@@ -183,12 +183,6 @@ export function Navigation() {
                 style={{ "--primary-color": PRIMARY_COLOR } as React.CSSProperties}
               >
                 {item.label}
-                <span
-                  className={`absolute bottom-0 left-0 w-full h-0.5 bg-[var(--primary-color)] transform transition-transform duration-200 ${
-                    pathname === item.href ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                  }`}
-                  style={{ "--primary-color": PRIMARY_COLOR } as React.CSSProperties}
-                />
               </Button>
             ))}
             <NavGetQuoteButton />
@@ -233,12 +227,6 @@ export function Navigation() {
                       style={{ "--primary-color": PRIMARY_COLOR } as React.CSSProperties}
                     >
                       {item.label}
-                      <span
-                        className={`absolute bottom-0 left-0 w-full h-0.5 bg-[var(--primary-color)] transform transition-transform duration-200 ${
-                          pathname === item.href ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                        }`}
-                        style={{ "--primary-color": PRIMARY_COLOR } as React.CSSProperties}
-                      />
                     </Button>
                   ))}
                 </nav>

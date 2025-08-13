@@ -219,18 +219,18 @@ export default function ServicesPage() {
                   className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 scroll-mt-20"
                 >
                   <CardContent className="p-0">
-                    <div className="p-8">
-                      <div className="flex items-start space-x-6">
-                        <div className="bg-[#4DA8DA]/10 rounded-full p-4 flex items-center justify-center flex-shrink-0">
+                    <div className="p-4 sm:p-6 lg:p-8">
+                      <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+                        <div className="bg-[#4DA8DA]/10 rounded-full p-3 sm:p-4 flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0">
                           <div className="text-[#4DA8DA]">{service.icon}</div>
                         </div>
-                        <div className="flex-1">
-                          <h2 className="text-2xl font-bold text-[#0B1F3A] mb-3">{service.title}</h2>
-                          <p className="text-gray-600 mb-4 text-lg">{service.description}</p>
+                        <div className="flex-1 text-center sm:text-left">
+                          <h2 className="text-xl sm:text-2xl font-bold text-[#0B1F3A] mb-3">{service.title}</h2>
+                          <p className="text-gray-600 mb-4 text-base sm:text-lg">{service.description}</p>
                           <Button
                             onClick={() => toggleExpanded(index)}
                             variant="outline"
-                            className="border-[#4DA8DA] text-[#4DA8DA] hover:bg-[#4DA8DA] btn-cursor-effect btn-outline-effect btn-magnetic"
+                            className="border-[#4DA8DA] text-[#4DA8DA] hover:bg-[#4DA8DA] hover:text-white btn-cursor-effect btn-outline-effect btn-magnetic w-full max-w-xs sm:max-w-none sm:w-auto px-4 sm:px-6 py-2 text-sm sm:text-base"
                           >
                             {expandedService === index ? (
                               <>
@@ -286,25 +286,25 @@ export default function ServicesPage() {
       <section className="py-16 bg-[#0B1F3A] text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
-            <p className="text-lg text-white/90 mb-8">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
+            <p className="text-base sm:text-lg text-white/90 mb-8 leading-relaxed">
               Let our experts help you choose the right solutions for your specific needs. Contact us today for a free
               consultation and customized quote.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              
-              
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4 sm:px-0">
               <a
                 href="https://wa.me/919310756714?text=Hello%20NAZ%20Engineering%20Systems,%20I%20would%20like%20to%20discuss%20your%20services%20and%20get%20a%20consultation."
                 target="_blank"
                 rel="noopener noreferrer"
+                className="w-full max-w-sm sm:max-w-none sm:w-auto"
               >
                 <Button
                   size="lg"
-                  className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 flex items-center btn-cursor-effect btn-whatsapp-effect btn-pulse"
+                  className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white px-4 sm:px-6 md:px-8 py-3 text-sm sm:text-base md:text-lg flex items-center justify-center btn-cursor-effect btn-whatsapp-effect btn-pulse"
                 >
-                  <MessageCircle className="mr-2 h-5 w-5 icon-rotate" />
-                  WhatsApp Consultation
+                  <MessageCircle className="mr-2 h-4 w-4 sm:h-5 sm:w-5 icon-rotate" />
+                  <span className="hidden sm:inline">WhatsApp Consultation</span>
+                  <span className="sm:hidden">WhatsApp Us</span>
                 </Button>
               </a>
             </div>

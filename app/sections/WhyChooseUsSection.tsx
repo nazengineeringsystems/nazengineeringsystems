@@ -1,5 +1,8 @@
 "use client"
+
 import { CheckCircle } from "lucide-react"
+import { useState } from "react"
+import dynamic from "next/dynamic"
 
 export default function WhyChooseUsSection() {
   const whyChooseUs = [
@@ -16,9 +19,12 @@ export default function WhyChooseUsSection() {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-[#0B1F3A] mb-4">Why Choose Us</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-[#0B1F3A] mb-4">
+              Why Choose Us
+            </h2>
             <p className="text-lg text-gray-600">
-              Experience the difference with our professional approach and commitment to excellence
+              Experience the difference with our professional approach and
+              commitment to excellence
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

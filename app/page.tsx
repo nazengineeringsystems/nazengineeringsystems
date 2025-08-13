@@ -12,7 +12,7 @@ import {
 } from "lucide-react"
 
 // Optimized lazy loading with better performance
-const ServicesSection = dynamic(() => import("./sections/ServicesSection"), {
+const ServicesSection = dynamic(() => import("./sections/ServicesSection").then(mod => ({ default: mod.default })), {
   ssr: false, // Load on client side for better initial performance
   loading: () => (
     <div className="py-16 bg-gray-50 min-h-[400px] flex items-center">
@@ -31,7 +31,7 @@ const ServicesSection = dynamic(() => import("./sections/ServicesSection"), {
   ),
 })
 
-const WhyChooseUsSection = dynamic(() => import("./sections/WhyChooseUsSection"), {
+const WhyChooseUsSection = dynamic(() => import("./sections/WhyChooseUsSection").then(mod => ({ default: mod.default })), {
   ssr: false, // Load on client side for better initial performance
   loading: () => (
     <div className="py-16 min-h-[400px] flex items-center">

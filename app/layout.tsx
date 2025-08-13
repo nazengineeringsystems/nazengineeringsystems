@@ -1,26 +1,22 @@
 import type React from "react"
-import type { Metadata, Viewport } from "next"
+import { Suspense } from "react"
+import dynamic from 'next/dynamic'
 import { Inter } from "next/font/google"
-import dynamic from "next/dynamic"
-import "./globals.css"
-import { Navigation } from "@/components/navigation"
-import { ScrollToTop } from "@/components/scroll-to-top"
 import { ThemeProvider } from "@/components/theme-provider"
-import { CriticalCSS, InlineCriticalCSS } from "@/components/critical-css"
-import { ResourcePrefetcher } from "@/components/resource-prefetcher"
+import { metadata, viewport } from "./metadata"
+import { ResourcePrefetcher, ScrollToTop, WhatsAppFloat, WebVitals } from "@/components/client-components"
+import "./globals.css"
 
-// Dynamically import non-critical components for better performance
+export { metadata, viewport }
+
+// Dynamically import server-side components for better performance
+const Navigation = dynamic(() => import("@/components/navigation").then(mod => ({ default: mod.Navigation })), {
+  ssr: true,
+  loading: () => <div className="h-16" /> // Add loading state
+})
 const Footer = dynamic(() => import("@/components/footer").then(mod => ({ default: mod.Footer })), {
   ssr: true,
-})
-
-const WebVitals = dynamic(() => import("@/components/web-vitals").then(mod => ({ default: mod.WebVitals })), {
-  ssr: true,
-})
-
-const WhatsAppFloat = dynamic(() => import("@/components/whatsapp-float").then(mod => ({ default: mod.WhatsAppFloat })), {
-  ssr: true,
-  loading: () => null,
+  loading: () => <div className="h-[200px]" /> // Add loading state
 })
 
 const inter = Inter({ 
@@ -30,55 +26,6 @@ const inter = Inter({
   variable: "--font-inter",
 })
 
-export const metadata: Metadata = {
-  title: {
-    default: "NAZ Engineering Systems - Technology & Infrastructure Solutions",
-    template: "%s | NAZ Engineering Systems"
-  },
-  description:
-    "Professional technology, energy, and infrastructure solutions. Enhancing Efficiency, Security & Sustainability for your business.",
-  keywords: [
-    "engineering systems",
-    "technology solutions",
-    "infrastructure",
-    "IT services",
-    "security systems",
-    "power solutions",
-    "energy solutions",
-    "Delhi engineering"
-  ],
-  authors: [{ name: "NAZ Engineering Systems" }],
-  creator: "NAZ Engineering Systems",
-  publisher: "NAZ Engineering Systems",
-  robots: "index, follow",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://nazengineeringsystems.com",
-    siteName: "NAZ Engineering Systems",
-    title: "NAZ Engineering Systems - Technology & Infrastructure Solutions",
-    description: "Professional technology, energy, and infrastructure solutions. Enhancing Efficiency, Security & Sustainability for your business.",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "NAZ Engineering Systems - Technology & Infrastructure Solutions",
-    description: "Professional technology, energy, and infrastructure solutions. Enhancing Efficiency, Security & Sustainability for your business.",
-  },
-  verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
-  },
-}
-
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 5,
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#4DA8DA' },
-    { media: '(prefers-color-scheme: dark)', color: '#0B1F3A' }
-  ],
-}
-
 export default function RootLayout({
   children,
 }: {
@@ -86,22 +33,30 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <InlineCriticalCSS />
+      <body className={`${inter.className} antialiased min-h-screen`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
-          <CriticalCSS />
-          <ResourcePrefetcher />
-          <ScrollToTop />
+          <Suspense fallback={null}>
+            <ResourcePrefetcher />
+          </Suspense>
+          <Suspense fallback={null}>
+            <ScrollToTop />
+          </Suspense>
           <Navigation />
-          <main>{children}</main>
-          <Footer />
-          <WhatsAppFloat />
-          <WebVitals />
+          <main className="min-h-[calc(100vh-4rem)]">{children}</main>
+          <Suspense fallback={null}>
+            <Footer />
+          </Suspense>
+          <Suspense fallback={null}>
+            <WhatsAppFloat />
+          </Suspense>
+          <Suspense fallback={null}>
+            <WebVitals />
+          </Suspense>
         </ThemeProvider>
       </body>
     </html>

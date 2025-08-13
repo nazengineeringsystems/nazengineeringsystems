@@ -17,31 +17,37 @@ export default function ServicesSection() {
       icon: <Server className="h-8 w-8" />,
       title: "IT Infrastructure",
       description: "Complete IT setup and management solutions",
+      serviceId: "service-it-infrastructure",
     },
     {
       icon: <Network className="h-8 w-8" />,
       title: "Networking",
       description: "Advanced networking and connectivity solutions",
+      serviceId: "service-networking-solutions",
     },
     {
       icon: <Shield className="h-8 w-8" />,
       title: "CCTV Systems",
       description: "Comprehensive security and surveillance systems",
+      serviceId: "service-cctv-security-systems",
     },
     {
       icon: <Battery className="h-8 w-8" />,
       title: "Power Backup",
       description: "Reliable UPS and backup power solutions",
+      serviceId: "service-power-backup-solutions",
     },
     {
       icon: <Sun className="h-8 w-8" />,
       title: "Solar Energy",
       description: "Sustainable solar power installations",
+      serviceId: "service-solar-energy-systems",
     },
     {
       icon: <Wrench className="h-8 w-8" />,
       title: "Engineering",
       description: "Professional engineering and consulting services",
+      serviceId: "service-engineering-services",
     },
   ]
 
@@ -69,11 +75,11 @@ export default function ServicesSection() {
                 <h3 className="text-xl font-bold text-[#0B1F3A] mb-3">{service.title}</h3>
                 <p className="text-gray-600 mb-4">{service.description}</p>
                 <Link
-                  href="/services"
-                  className="text-[#4DA8DA] hover:text-[#0B1F3A] font-medium inline-flex items-center group-hover:underline"
+                  href={`/services#${service.serviceId}`}
+                  className="text-[#4DA8DA] hover:text-[#0B1F3A] font-medium inline-flex items-center group-hover:underline transition-colors duration-200"
                 >
                   Learn More
-                  <ArrowRight className="ml-1 h-4 w-4" />
+                  <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
                 </Link>
               </CardContent>
             </Card>

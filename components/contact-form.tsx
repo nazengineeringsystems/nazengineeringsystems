@@ -271,23 +271,36 @@ export function ContactForm() {
             </label>
           </div>
 
-          <Button
-            type="submit"
-            disabled={isPending}
-            className="w-full bg-[#4DA8DA] hover:bg-[#4DA8DA]/90 text-white py-3 text-sm sm:text-base font-medium hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-          >
-            {isPending ? (
-              <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Sending Message...
-              </>
-            ) : (
-              <>
-                <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                Send Message
-              </>
-            )}
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-2 justify-end mt-6 px-4 sm:px-0">
+            <Button
+              type="button"
+              variant="outline"
+              className="w-full max-w-xs sm:max-w-none sm:w-auto order-2 sm:order-1 px-4 sm:px-6 py-2 text-sm sm:text-base"
+              onClick={() => {
+                const form = document.getElementById("contact-form-element") as HTMLFormElement
+                form?.reset()
+                setResult(null)
+                setValidationErrors({})
+              }}
+              disabled={isPending}
+            >
+              Reset
+            </Button>
+            <Button
+              type="submit"
+              className="w-full max-w-xs sm:max-w-none sm:w-auto order-1 sm:order-2 px-4 sm:px-6 py-2 text-sm sm:text-base"
+              disabled={isPending}
+            >
+              {isPending ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Sending...
+                </>
+              ) : (
+                "Send Message"
+              )}
+            </Button>
+          </div>
         </form>
 
         <div className="mt-4 space-y-2">
