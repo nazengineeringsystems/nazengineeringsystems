@@ -215,6 +215,23 @@ img {
   animation: fadeInUp 0.6s ease-out;
 }
 
+/* WhatsApp Logo Bounce Animation */
+@keyframes whatsappLogoBounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  40% {
+    transform: translateY(-8px) scale(1.05);
+  }
+  60% {
+    transform: translateY(-4px) scale(1.02);
+  }
+}
+
+.animate-whatsapp-logo {
+  animation: whatsappLogoBounce 2s ease-in-out;
+}
+
 /* Optimized Button Cursor Effects - GPU accelerated */
 .btn-cursor-effect {
   position: relative;
