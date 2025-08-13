@@ -60,7 +60,7 @@ export function TooltipExamples() {
             <div className="mt-4 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
               <p className="text-sm text-yellow-800">
                 📱 <strong>Mobile Responsive:</strong> These tooltips automatically adjust size and spacing on mobile devices. 
-                The "Chat with us!" text stays on one line and icons scale appropriately.
+                The &quot;Chat with us!&quot; text stays on one line and icons scale appropriately.
               </p>
             </div>
           </div>

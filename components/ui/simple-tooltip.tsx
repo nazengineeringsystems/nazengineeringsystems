@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect, useCallback } from "react"
 import { cn } from "@/lib/utils"
 
 interface SimpleTooltipProps {
@@ -59,7 +59,7 @@ export function SimpleTooltip({
   }
 
   // Check for WhatsApp widget collision
-  const checkCollision = () => {
+  const checkCollision = useCallback(() => {
     if (!containerRef.current) return position
     
     const rect = containerRef.current.getBoundingClientRect()
@@ -107,14 +107,14 @@ export function SimpleTooltip({
     }
     
     return position
-  }
+  }, [position])
   
   useEffect(() => {
     if (isVisible) {
       const newPosition = checkCollision()
       setAdjustedPosition(newPosition)
     }
-  }, [isVisible, position])
+  }, [isVisible, position, checkCollision])
 
   const getTooltipPosition = () => {
     const baseClasses = "absolute z-40" // Lower z-index than WhatsApp widget (z-50)
