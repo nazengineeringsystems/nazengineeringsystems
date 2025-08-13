@@ -232,6 +232,45 @@ img {
   animation: whatsappLogoBounce 2s ease-in-out;
 }
 
+/* Enhanced border classes for chat tooltip */
+.border-l-5 {
+  border-left-width: 5px;
+}
+
+.border-r-5 {
+  border-right-width: 5px;
+}
+
+.border-t-5 {
+  border-top-width: 5px;
+}
+
+.border-l-6 {
+  border-left-width: 6px;
+}
+
+.border-r-6 {
+  border-right-width: 6px;
+}
+
+.border-t-6 {
+  border-top-width: 6px;
+}
+
+/* Chat tooltip glow animation */
+@keyframes chatTooltipGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3), 0 0 40px rgba(59, 130, 246, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.5), 0 0 60px rgba(59, 130, 246, 0.3);
+  }
+}
+
+.animate-chat-glow {
+  animation: chatTooltipGlow 3s ease-in-out infinite;
+}
+
 /* Optimized Button Cursor Effects - GPU accelerated */
 .btn-cursor-effect {
   position: relative;
